@@ -2,6 +2,7 @@
 
 #include <QDialog>
 #include <Chip/Chip.h>
+#include <unordered_map>
 namespace Ui { class AltSolutionWindow; };
 class GFChip;
 class ChipSolver;
@@ -36,7 +37,7 @@ private:
 	ChipTableDelegate* chipTableDelegate_;
 	SolutionTableModel* solutionTableModel_;
 	std::vector<Solution> solutions_;
-	std::map<int, int> chipCount_;
+	std::unordered_map<int, int> chipCount_;
 
 	void saveSolutions();
 	void connect();
