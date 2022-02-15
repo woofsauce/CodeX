@@ -9,12 +9,12 @@
 #include <QResource>
 #include <QFile>
 
-// ∏˜ Ù–‘œµ ˝
-static constexpr double ArgDmg = 4.4, ArgDbk = 12.7, ArgAcu = 7.1, ArgFil = 5.7;
-// √‹∂»œµ ˝
-static constexpr double Den56 = 1.0, Den551 = 0.92, Den552 = 1.0;
-// µ»º∂œµ ˝
-static constexpr double ArgLv[21] = { 1.0,1.08,1.16,1.24,1.32,1.4,1.48,1.56,1.64,1.72,1.8,1.87,1.94,2.01,2.08,2.15,2.22,2.29,2.36,2.43,2.5 };
+// ÂêÑÂ±ûÊÄßÁ≥ªÊï∞
+static constexpr float ArgDmg = 4.4, ArgDbk = 12.7, ArgAcu = 7.1, ArgFil = 5.7;
+// ÂØÜÂ∫¶Á≥ªÊï∞
+static constexpr float Den56 = 1.0, Den551 = 0.92, Den552 = 1.0;
+// Á≠âÁ∫ßÁ≥ªÊï∞
+static constexpr float ArgLv[21] = { 1.0,1.08,1.16,1.24,1.32,1.4,1.48,1.56,1.64,1.72,1.8,1.87,1.94,2.01,2.08,2.15,2.22,2.29,2.36,2.43,2.5 };
 
 static bool ChipResourceInit = false;
 
@@ -25,7 +25,7 @@ GFChip::GFChip(const QJsonObject& object)
 	level = object.value("chip_level").toString().toInt();
 	color = object.value("color_id").toString().toInt();
 	gridID = object.value("grid_id").toString().toInt();
-	chipClass = object.value("chip_id").toString().toInt();  //ChipConfig::getConfig(gridID).chipClass; // ”Œœ∑ƒ⁄”–µƒclass≤ª∂‘°£°£°£
+	chipClass = object.value("chip_id").toString().toInt();  //ChipConfig::getConfig(gridID).chipClass; // Ê∏∏ÊàèÂÜÖÊúâÁöÑclass‰∏çÂØπ„ÄÇ„ÄÇ„ÄÇ
 	squad = object.value("squad_with_user_id").toString().toInt();
 	auto t = object.value("position").toString("0,0").split(",");
 	position.x = t[0].toInt();
@@ -124,10 +124,10 @@ void GFChip::calcValue()
 		den = Den552;
 		break;
 	}
-	this->damageValue = ceil(ceil(this->damageBlock * ArgDmg * den) * ArgLv[this->level]);
-	this->defbreakValue = ceil(ceil(this->defbreakBlock * ArgDbk * den) * ArgLv[this->level]);
-	this->hitValue = ceil(ceil(this->hitBlock * ArgAcu * den) * ArgLv[this->level]);
-	this->reloadValue = ceil(ceil(this->reloadBlock * ArgFil * den) * ArgLv[this->level]);
+	this->damageValue = ceilf(ceilf(this->damageBlock * ArgDmg * den) * ArgLv[this->level]);
+	this->defbreakValue = ceilf(ceilf(this->defbreakBlock * ArgDbk * den) * ArgLv[this->level]);
+	this->hitValue = ceilf(ceilf(this->hitBlock * ArgAcu * den) * ArgLv[this->level]);
+	this->reloadValue = ceilf(ceilf(this->reloadBlock * ArgFil * den) * ArgLv[this->level]);
 }
 
 GFChip GFChip::operator+(const GFChip& t) const
@@ -181,7 +181,7 @@ Chips getChips(const QJsonObject& obj)
 			chips.push_back(chip);
 		}
 	}
-	// ∞¥ID≈≈–Ú
+	// ÊåâIDÊéíÂ∫è
 	std::sort(chips.begin(), chips.end(),
 		[](const GFChip& a, const GFChip& b) -> bool
 		{
@@ -228,7 +228,7 @@ const ChipConfig& ChipConfig::getConfig(int id)
 			ChipResourceInit = true;
 			Q_INIT_RESOURCE(Chip);
 		}
-		// ≥ı ºªØ
+		// ÂàùÂßãÂåñ
 		QFile json(":/Chip/Resources/chips.json");
 		json.open(QIODevice::ReadOnly);
 		auto data = json.readAll();

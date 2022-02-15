@@ -8,7 +8,7 @@
 #include <vector>
 #include <map>
 
-// ÓÎÏ·ÄÚµÄĞ¾Æ¬Êı¾İ
+// æ¸¸æˆå†…çš„èŠ¯ç‰‡æ•°æ®
 class CHIP_EXPORT GFChip
 {
 public:
@@ -36,43 +36,43 @@ public:
 		int x, y;
 	};
 
-	// ÓÎÏ·ÄÚid
+	// æ¸¸æˆå†…id
 	int id;
-	// Ë³Ğò±àºÅ
+	// é¡ºåºç¼–å·
 	int no;
-	// Ğ¾Æ¬Àà±ğ£¬5061/5051/5052...
+	// èŠ¯ç‰‡ç±»åˆ«ï¼Œ5061/5051/5052...
 	int chipClass;
-	// Ğ¾Æ¬¾­Ñé
+	// èŠ¯ç‰‡ç»éªŒ
 	int exp;
-	// Ğ¾Æ¬µÈ¼¶
+	// èŠ¯ç‰‡ç­‰çº§
 	int level;
-	// Ğ¾Æ¬ÑÕÉ«
+	// èŠ¯ç‰‡é¢œè‰²
 	int color;
-	// Ğ¾Æ¬ĞÎ×´ID
+	// èŠ¯ç‰‡å½¢çŠ¶ID
 	int gridID;
-	// Ğ¡¶Ó×°±¸ĞÅÏ¢£¬0Î´×°±¸
+	// å°é˜Ÿè£…å¤‡ä¿¡æ¯ï¼Œ0æœªè£…å¤‡
 	int squad;
-	// Ğ¾Æ¬Î»ÖÃ
+	// èŠ¯ç‰‡ä½ç½®
 	Point position;
-	// Ğ¾Æ¬Ğı×ª£¬Ë³Ê±Õë£¬90¶ÈÎªµ¥Î»
+	// èŠ¯ç‰‡æ—‹è½¬ï¼Œé¡ºæ—¶é’ˆï¼Œ90åº¦ä¸ºå•ä½
 	int rotate;
-	// ÉËº¦¸ñÊı
+	// ä¼¤å®³æ ¼æ•°
 	int damageBlock;
-	// ×°Ìî¸ñÊı
+	// è£…å¡«æ ¼æ•°
 	int reloadBlock;
-	// ÃüÖĞ¸ñÊı
+	// å‘½ä¸­æ ¼æ•°
 	int hitBlock;
-	// ÆÆ·À¸ñÊı
+	// ç ´é˜²æ ¼æ•°
 	int defbreakBlock;
-	// ÉËº¦ÊıÖµ
+	// ä¼¤å®³æ•°å€¼
 	int damageValue;
-	// ×°ÌîÊıÖµ
+	// è£…å¡«æ•°å€¼
 	int reloadValue;
-	// ÃüÖĞÊıÖµ
+	// å‘½ä¸­æ•°å€¼
 	int hitValue;
-	// ÆÆ·ÀÊıÖµ
+	// ç ´é˜²æ•°å€¼
 	int defbreakValue;
-	// Ëø¶¨
+	// é”å®š
 	bool locked;
 	
 	void calcValue();
@@ -87,10 +87,10 @@ typedef std::vector<GFChip> Chips;
 
 Chips CHIP_EXPORT getChips(const QJsonObject& obj);
 
-// Ğ¡¶ÓĞòºÅ×ªÎª¶ÔÓ¦Ãû³Æ£¬ĞèÒªÏÈ´Ósquad_with_user_infoÖĞ¶ÁÈ¡id²¢×ª»»Îª1-6
+// å°é˜Ÿåºå·è½¬ä¸ºå¯¹åº”åç§°ï¼Œéœ€è¦å…ˆä»squad_with_user_infoä¸­è¯»å–idå¹¶è½¬æ¢ä¸º1-6
 QString CHIP_EXPORT squadString(int i);
 
-// Ã¿ÀàĞ¾Æ¬µÄ»ù±¾²ÎÊı
+// æ¯ç±»èŠ¯ç‰‡çš„åŸºæœ¬å‚æ•°
 class CHIP_EXPORT ChipConfig
 {
 public:
@@ -98,25 +98,25 @@ public:
 
 	ChipConfig() = default;
 	
-	// Ğ¾Æ¬ĞÎ×´ID
+	// èŠ¯ç‰‡å½¢çŠ¶ID
 	int gridID;
-	// Ğ¾Æ¬Àà±ğ£¬5061/5051/5052...
+	// èŠ¯ç‰‡ç±»åˆ«ï¼Œ5061/5051/5052...
 	int chipClass;
-	// Ğ¾Æ¬¿í¶È
+	// èŠ¯ç‰‡å®½åº¦
 	int width;
-	// Ğ¾Æ¬¸ß¶È
+	// èŠ¯ç‰‡é«˜åº¦
 	int height;
-	// Ğ¾Æ¬¸ñÊı
+	// èŠ¯ç‰‡æ ¼æ•°
 	int blocks;
-	// Ğı×ª·½ÏòÊı
+	// æ—‹è½¬æ–¹å‘æ•°
 	int direction;
 
-	// Ğ¾Æ¬Ãû×Ö
+	// èŠ¯ç‰‡åå­—
 	std::string name;
-	// Ğ¾Æ¬ĞÎ×´
+	// èŠ¯ç‰‡å½¢çŠ¶
 	Map map;
 
-	// Í¨¹ıgridID»ñÈ¡Ğ¾Æ¬ÅäÖÃ
+	// é€šè¿‡gridIDè·å–èŠ¯ç‰‡é…ç½®
 	static const ChipConfig& getConfig(int id);
 
 	ChipConfig rotate90(int n = 1) const; // clockwise
@@ -127,12 +127,12 @@ private:
 	static std::map<int, ChipConfig> configs_;
 };
 
-// Ğ¾Æ¬ÔÚÆ´Í¼½â·¨ÖĞµÄ²ÎÊı
+// èŠ¯ç‰‡åœ¨æ‹¼å›¾è§£æ³•ä¸­çš„å‚æ•°
 struct CHIP_EXPORT ChipPuzzleOption
 {
 	int no;
 	uint8_t x, y;
-	// Ë³Ê±ÕëĞı×ª90¶ÈµÄ´ÎÊı
+	// é¡ºæ—¶é’ˆæ—‹è½¬90åº¦çš„æ¬¡æ•°
 	uint8_t rotate;
 	explicit ChipPuzzleOption(int _x = 0, int _y = 0, int _r = 0, int _no = 0) :no(_no), x(_x), y(_y), rotate(_r) {}
 	explicit ChipPuzzleOption(const QJsonObject& object);
@@ -140,7 +140,7 @@ struct CHIP_EXPORT ChipPuzzleOption
 	static ChipPuzzleOption fromJsonObject(const QJsonObject& object);
 };
 
-// Ğ¾Æ¬°Ú·ÅĞÅÏ¢£¬0Îª¿Õ£¬>0ÎªĞ¾Æ¬±àºÅ£¨ÏÂ±ê+1),<0ÎªÎŞ·¨Ê¹ÓÃ
+// èŠ¯ç‰‡æ‘†æ”¾ä¿¡æ¯ï¼Œ0ä¸ºç©ºï¼Œ>0ä¸ºèŠ¯ç‰‡ç¼–å·ï¼ˆä¸‹æ ‡+1),<0ä¸ºæ— æ³•ä½¿ç”¨
 struct CHIP_EXPORT ChipViewInfo
 {
 	int width;
@@ -148,14 +148,14 @@ struct CHIP_EXPORT ChipViewInfo
 	std::vector<std::vector<int>> map;
 };
 
-// Ò»×é¿ÉĞĞ½â
+// ä¸€ç»„å¯è¡Œè§£
 struct CHIP_EXPORT Solution
 {
-	// Ê¹ÓÃµÄĞ¾Æ¬²ÎÊı
+	// ä½¿ç”¨çš„èŠ¯ç‰‡å‚æ•°
 	std::vector<ChipPuzzleOption> chips;
-	// µÃµ½µÄÖØ×°×ÜÊôĞÔ£¬ÒÔlevelÎª×ÜµÈ¼¶£¬idÎªÊôĞÔÆ«²î£¬noÎªĞı×ª´ÎÊı
+	// å¾—åˆ°çš„é‡è£…æ€»å±æ€§ï¼Œä»¥levelä¸ºæ€»ç­‰çº§ï¼Œidä¸ºå±æ€§åå·®ï¼Œnoä¸ºæ—‹è½¬æ¬¡æ•°
 	GFChip totalValue;
-	// ÖØ×°Ğ¡¶ÓÃû³Æ
+	// é‡è£…å°é˜Ÿåç§°
 	QString squad;
 
 	bool operator <(const Solution& r) const;
@@ -165,5 +165,5 @@ struct CHIP_EXPORT Solution
 	static Solution fromJsonObject(const QJsonObject& obj);
 };
 
-// Ò»¸öÖØ×°µÄËùÓĞ½â
+// ä¸€ä¸ªé‡è£…çš„æ‰€æœ‰è§£
 typedef std::vector<Solution> SquadSolution;

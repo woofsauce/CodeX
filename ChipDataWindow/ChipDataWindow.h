@@ -19,7 +19,7 @@ public:
 	void init();
 
 signals:
-	// Ğ¾Æ¬Êı¾İ¸üĞÂÁË
+	// èŠ¯ç‰‡æ•°æ®æ›´æ–°äº†
 	void chipsChanged();
 
 public slots:
